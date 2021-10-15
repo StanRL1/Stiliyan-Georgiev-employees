@@ -22,12 +22,13 @@ public class Workhouse implements Runnable {
     @Override
     public void run() {
         List<Recording> recordings=new ArrayList<>();
+        System.out.println();
         List<String> lines=this.fileInputCollector.read(FILE_PATH);
         for (String str:lines) {
             Recording recording= RecordingReader.create(str);
             recordings.add(recording);
         }
-
+        System.out.println();
         this.employeeTeamService.addEmployeeRecordings(recordings);
 
 
